@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Interrupted</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --alert-red: #8B0000; /* Dark Crimson */
+            --alert-glow: rgba(220, 20, 60, 0.5);
+            --bg-deep: #050507;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        /* --- BACKGROUND ATMOSPHERE --- */
+        .ambient { position: absolute; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+        .fog {
+            position: absolute; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            animation: breathe 6s infinite alternate ease-in-out;
+        }
+        @keyframes breathe { 0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); } 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); } }
+
+        /* --- CARD --- */
+        .error-card {
+            position: relative; z-index: 10;
+            width: 85%; max-width: 340px;
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--border);
+            border-top: 1px solid rgba(255, 50, 50, 0.2);
+            border-radius: 24px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+            animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- ANIMATED ICON (The Luxury Alert) --- */
+        .alert-icon-wrapper {
+            width: 80px; height: 80px; margin: 0 auto 25px;
+            position: relative; display: flex; justify-content: center; align-items: center;
+        }
+        .ring {
+            position: absolute; border-radius: 50%;
+            border: 1px solid var(--alert-red);
+            box-shadow: 0 0 20px var(--alert-glow);
+            opacity: 0;
+            animation: radar 3s infinite;
+        }
+        .ring:nth-child(1) { width: 100%; height: 100%; animation-delay: 0s; }
+        .ring:nth-child(2) { width: 70%; height: 70%; animation-delay: 0.5s; }
+        
+        .symbol {
+            font-size: 30px; color: #ff4d4d; z-index: 2;
+            text-shadow: 0 0 15px var(--alert-red);
+            animation: floatIcon 3s infinite ease-in-out;
+        }
+
+        @keyframes radar { 
+            0% { transform: scale(0.8); opacity: 0.8; border-width: 2px; } 
+            100% { transform: scale(1.5); opacity: 0; border-width: 0px; } 
+        }
+        @keyframes floatIcon { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+        /* --- TEXT --- */
+        h2 { 
+            font-family: 'Cinzel', serif; font-size: 20px; 
+            color: #ffcccc; margin-bottom: 10px; letter-spacing: 1px; 
+        }
+        
+        .message-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 50, 50, 0.1);
+            padding: 15px; border-radius: 12px;
+            color: #b08d8d; font-size: 13px; line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* --- BUTTON --- */
+        .btn-retry {
+            display: inline-block; width: 100%; padding: 14px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-weight: 600; font-size: 13px; letter-spacing: 1px;
+            text-decoration: none; border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative; overflow: hidden;
+        }
+        
+        .btn-retry:hover {
+            background: var(--gold); color: #000;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="fog"></div></div>
+
+    <div class="error-card">
+        <div class="alert-icon-wrapper">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="symbol">⚠</div>
+        </div>
+
+        <h2>ACCESS INTERRUPTED</h2>
+        
+        <div class="message-box">
+            $(error)<br>
+            <span style="font-size:10px; opacity:0.6; margin-top:5px; display:block;">SYSTEM SECURITY PROTOCOL</span>
+        </div>
+
+        <a href="$(link-login)" class="btn-retry">RECONNECT</a>
+    </div>
+
+    <script>
+        const msg = document.querySelector('.message-box');
+        if(msg.innerHTML.includes('$(error)')) {
+            msg.innerHTML = "Invalid credentials provided.<br><span style='font-size:10px; opacity:0.6; margin-top:5px; display:block;'>SYSTEM SECURITY PROTOCOL</span>";
+        }
+    </script>
+</body>
+</html>
