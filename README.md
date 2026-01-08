@@ -35,3 +35,21 @@
 ├── rlink.html      # Universal Redirect (Ke Link Tujuan)
 ├── alogin.html     # Universal Loader (Memproses Login)
 └── md5.js          # Library Enkripsi (Wajib disertakan)
+
+## 🚀 Cara Pasang
+
+    Download semua script/file template ini.
+
+    Pastikan file md5.js (bawaan Mikrotik atau dari repo ini) ada di dalam folder.
+
+    Upload seluruh file ke dalam folder baru di File List Mikrotik (misal: hotspot/obsidian).
+
+    Masuk ke menu IP > Hotspot > Server Profile.
+
+    Ubah HTML Directory ke folder hotspot/obsidian.
+
+    Opsional: Untuk hasil font terbaik, pastikan Walled Garden mengizinkan akses ke fonts.googleapis.com dan fonts.gstatic.com.
+
+❤️ Credits
+
+Dibuat dengan Gemini AI 🤭🤭🤭
