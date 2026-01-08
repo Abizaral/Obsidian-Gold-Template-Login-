@@ -1,5 +1,4 @@
-# Obsidian-Gold-Template-Login-
-# Obsidian Gold-Hotspot Template
+# Obsidian Gold - Hotspot Template
 
 ![Mikrotik](https://img.shields.io/badge/Platform-Mikrotik-red?style=for-the-badge&logo=mikrotik)
 ![Design](https://img.shields.io/badge/Style-Glassmorphism-gold?style=for-the-badge)
@@ -23,9 +22,8 @@
 
 ---
 
-## 📂 Struktur File
+## 📂 Struktur Folder
 
-```text
 /hotspot
 ├── login.html      # Halaman Login (Animasi Gold Pulse)
 ├── status.html     # Dashboard Smart Status (Auto-hide quota)
@@ -37,19 +35,14 @@
 └── md5.js          # Library Enkripsi (Wajib disertakan)
 
 ## 🚀 Cara Pasang
+1. Download semua script/file template ini.
+2. Pastikan file md5.js (bawaan Mikrotik atau dari repo ini) ada di dalam folder.
+3. Upload seluruh file ke dalam folder baru di File List Mikrotik (misal: hotspot/obsidian).
+4. Masuk ke menu IP > Hotspot > Server Profile.
+5. Pilih profil hotspot yang aktif, lalu ubah HTML Directory ke folder hotspot/obsidian.
+6. Opsional: Untuk hasil font terbaik, pastikan Walled Garden mengizinkan akses ke:
+  fonts.googleapis.com
+  fonts.gstatic.com.
 
-    Download semua script/file template ini.
-
-    Pastikan file md5.js (bawaan Mikrotik atau dari repo ini) ada di dalam folder.
-
-    Upload seluruh file ke dalam folder baru di File List Mikrotik (misal: hotspot/obsidian).
-
-    Masuk ke menu IP > Hotspot > Server Profile.
-
-    Ubah HTML Directory ke folder hotspot/obsidian.
-
-    Opsional: Untuk hasil font terbaik, pastikan Walled Garden mengizinkan akses ke fonts.googleapis.com dan fonts.gstatic.com.
-
-❤️ Credits
-
-Dibuat dengan Gemini AI 🤭🤭🤭
+## Credits
+Dibuat dengan Gemini AI WOWOWK
